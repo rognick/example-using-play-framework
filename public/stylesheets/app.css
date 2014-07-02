@@ -1,0 +1,16 @@
+.container {
+    width: 330px;
+}
+
+.form-add-user {
+    padding: 30px;
+}
+
+.form-add-user .form-control {
+    margin-bottom: 10px;
+}
+
+#users > div {
+    padding: 10px;
+    border-bottom: 1px dotted #a1a1a1;
+}

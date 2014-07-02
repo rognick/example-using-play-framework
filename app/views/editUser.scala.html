@@ -1,0 +1,32 @@
+@(user: User, userForm: Form[User])
+
+@main("Create User") {
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+
+
+        @if(userForm.hasErrors) {
+
+
+            @for(error <- userForm.errors) {
+                <div >
+                    <p>@Messages(error.message)
+                    </p>
+
+                </div>
+            }
+        }
+        <form action="@routes.UserController.updateUser()" method="post" role="form" class="form-add-user">
+            <input type="text" name="email" class="form-control"   value = "@user.email">
+            <input type="text" name="firstName" class="form-control" value = "@user.firstName">
+            <input type="text" name="lastName" class="form-control"  value = "@user.lastName">
+            <input type="number" name="age" class="form-control" value = "@user.age">
+
+            <button type="submit" class="btn btn-primary" id="submit" >Save</button>
+            <a href="@routes.UserController.showUserForm()"> <button type="button" class="btn btn-primary" >Back</button> </a>
+
+        </form>
+
+    </div>
+
+
+}

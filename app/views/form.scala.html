@@ -1,0 +1,47 @@
+@(users: Seq[User], userForm: Form[User])
+
+@main("Create User") {
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+
+
+        @if(userForm.hasErrors) {
+
+
+            @for(error <- userForm.errors) {
+                <div >
+                    <p>@Messages(error.message)
+                    </p>
+
+                </div>
+            }
+        }
+        <form action="@routes.UserController.submit()" method="post" role="form" class="form-add-user">
+            <input type="text" name="email" class="form-control" autofocus placeholder="Email">
+            <input type="text" name="firstName" class="form-control" placeholder="First Name">
+            <input type="text" name="lastName" class="form-control" placeholder="Last Name">
+            <input type="number" name="age" class="form-control" placeholder="Age">
+
+            <button type="submit" class="btn btn-primary" id="submit" >Submit</button>
+
+        </form>
+
+        <div id="users">
+        @for(user <- users) {
+            <div >
+                @user.email
+                @user.firstName
+                @user.lastName
+
+                <div>
+                    <a href="@routes.UserController.delete(user.email)">Delete</a>
+                    <a href="@routes.UserController.viewUpdateUser(user.email)"> Edit </a>
+                </div>
+
+            </div>
+        }
+        </div>
+
+    </div>
+
+
+}

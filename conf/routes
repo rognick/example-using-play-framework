@@ -1,0 +1,36 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+
+POST          /users                controllers.UserController.create
+
+
+GET           /edit/:email         controllers.UserController.viewUpdateUser(email: String)
+
+POST          /edit          controllers.UserController.updateUser
+
+
+GET           /users                controllers.UserController.all
+
+GET           /submit/:email        controllers.UserController.delete(email)
+
+
+
+GET           /users/:email         controllers.UserController.getByEmail(email)
+
+GET           /:name/:age           controllers.Application.index(name: String, age: Int)
+
+PUT           /users                controllers.UserController.update
+
+DELETE        /users/:email         controllers.UserController.delete(email)
+
+GET           /userForm             controllers.UserController.showUserForm
+
+POST          /submit               controllers.UserController.submit
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file         controllers.Assets.at(path="/public", file)
