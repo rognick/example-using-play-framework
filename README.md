@@ -1,2 +1,2 @@
-# play-fraim-in-scala
-play fraim
+# scala play framework
+Example using play framework
